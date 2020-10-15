@@ -1,1 +1,16 @@
-<p>board works!</p>
+<h1>Current Player: {{currentPlayer}}</h1>
+
+
+<div class="board">
+  <div class="row" *ngFor="let row of board; let i = index">
+    <app-square
+      class="columns"
+      *ngFor="let val of row, let j = index"
+      [value]="val"
+      (click)="makeMove(i, j)">
+
+    </app-square>
+  </div>
+</div>
+
+<button (click)="newGame()">Start new Game</button>
